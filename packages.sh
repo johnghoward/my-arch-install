@@ -54,7 +54,7 @@ APPS=(
     'p7zip'                         # OPTIONAL: Support for 7zip files
     'pavucontrol'                   # OPTIONAL: Pulse Audio volume control
     'perl'                          # OPTIONAL: Perl
-    'pavucontrol'                   # OPTIONAL: Pulse Audio volume control
+    'php'                           # OPTIONAL: PHP
     'pipewire'                      # OPTIONAL: Modern audio router and processor
     'pipewire-alsa'                 # OPTIONAL: Pipewire alsa configuration
     'pipewire-pulse'                # OPTIONAL: Pipewire replacement for pulseaudio

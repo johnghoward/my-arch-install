@@ -434,6 +434,9 @@ install_applications() {
     # paru is needed for some AUR packages
     install_paru
 
+    # yay is needed for some AUR packages
+    install_yay
+
     # install the chosen DE and GPU drivers
     sudo su ${USR} -s /bin/zsh -lc "$ins ${DE[*]}"
 
@@ -474,6 +477,23 @@ install_paru() {
     cd $OG_DIR
 }
 
+install_yay() {
+    OG_DIR=$(pwd)
+    cd /home/${USR}
+
+    # clone the repo
+    sudo -u ${USR} git clone https://aur.archlinux.org/yay.git yay
+    cd yay
+
+    # make the package
+    sudo -u ${USR} makepkg -si --noconfirm
+
+    # clean up
+    cd ..
+    rm -rf yay
+    cd $OG_DIR
+}
+
 detect_drivers(){
     GPU=$(lspci | grep VGA | cut -d " " -f 5-)
 
@@ -493,7 +513,7 @@ install_dotfiles() {
     # it's needed to have a directory to drop some configs
     sudo su ${USR} -s /bin/zsh -lc "timeout 1s firefox --headless"
 
-    git clone https://github.com/tralph3/.dotfiles ${USR_HOME}/.dotfiles
+    git clone https://github.com/johnghoward/my-arch-linux-.dotfiles ${USR_HOME}/.dotfiles
     chmod +x ${USR_HOME}/.dotfiles/install.sh
     chown -R ${USR}:${USR} ${USR_HOME}
     sudo -u ${USR} ${USR_HOME}/.dotfiles/install.sh --noconfirm

@@ -1,13 +1,14 @@
 #!/bin/zsh
-# tralph3's Arch installation script
+# johnghoward's Arch installation script
+# original scripts can be found at: https://github.com/tralph3/arch-install
 
 # fetch scripts
 if ! [ -f definitions.sh ]; then
-    curl -Lo definitions.sh "https://raw.githubusercontent.com/tralph3/arch-install/master/definitions.sh"
+    curl -Lo definitions.sh "https://raw.githubusercontent.com/johnghoward/my-arch-install/master/definitions.sh"
 fi
 
 if ! [ -f packages.sh ]; then
-    curl -Lo packages.sh "https://raw.githubusercontent.com/tralph3/arch-install/master/packages.sh"
+    curl -Lo packages.sh "https://raw.githubusercontent.com/johnghoward/my-arch-install/master/packages.sh"
 fi
 
 source definitions.sh
